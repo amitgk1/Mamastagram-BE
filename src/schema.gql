@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AuthLoginInput {
+  email: String!
+  password: String!
+}
+
+input AuthRegisterInput {
+  email: String!
+  firstName: String
+  lastName: String
+  password: String!
+}
+
+input FollowUserInput {
+  currentUserId: ID!
+  followingUserId: ID!
+}
+
+type Mutation {
+  followUser(input: FollowUserInput!): User!
+  login(input: AuthLoginInput!): UserToken!
+  register(input: AuthRegisterInput!): UserToken!
+}
+
+type Query {
+  findAll: [User!]!
+}
+
+type User {
+  email: String!
+  firstName: String
+  following: [User!]!
+  id: ID!
+  lastName: String
+}
+
+type UserToken {
+  token: String!
+}
